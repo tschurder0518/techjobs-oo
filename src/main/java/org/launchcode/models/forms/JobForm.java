@@ -19,15 +19,18 @@ public class JobForm {
     @Size(min=1, message = "Name may not be empty")
     private String name;
 
-    @NotNull
+ 
     private int employerId;
 
-    /*
-        TODO #3 - Included other fields needed to create a job,
-        with correct validation attributes and display names.
-        Don't forget to add getters and setters
-     */
+    
+    private int locationsId;
+    
 
+    private int coreCompetenciesId;
+ 
+    
+    private int positionTypesId;
+    
     private ArrayList<Employer> employers;
     private ArrayList<Location> locations;
     private ArrayList<CoreCompetency> coreCompetencies;
@@ -37,11 +40,10 @@ public class JobForm {
 
         JobData jobData = JobData.getInstance();
 
-        /*
-            TODO #4 - populate the other ArrayList collections needed in the view
-        */
-
         employers = jobData.getEmployers().findAll();
+        locations = jobData.getLocations().findAll();
+        coreCompetencies = jobData.getCoreCompetencies().findAll();
+        positionTypes = jobData.getPositionTypes().findAll();
 
     }
 
@@ -69,6 +71,14 @@ public class JobForm {
         this.employers = employers;
     }
 
+    public int getLocationsId() {
+    	return locationsId;
+    }
+    
+    public void setLocationsId(int locationsId) {
+    	this.locationsId = locationsId;
+    }
+    
     public ArrayList<Location> getLocations() {
         return locations;
     }
@@ -77,6 +87,14 @@ public class JobForm {
         this.locations = locations;
     }
 
+    public int getCoreCompetenciesId() {
+    	return coreCompetenciesId;
+    }
+    
+    public void setCoreCompetenciesId(int coreCompetenciesId) {
+    	this.coreCompetenciesId = coreCompetenciesId;
+    }
+    
     public ArrayList<CoreCompetency> getCoreCompetencies() {
         return coreCompetencies;
     }
@@ -85,6 +103,14 @@ public class JobForm {
         this.coreCompetencies = coreCompetencies;
     }
 
+    public int getPositionTypesId() {
+    	return positionTypesId;
+    }
+    
+    public void setPositionTypesId(int positionTypesId) {
+    	this.positionTypesId = positionTypesId;
+    }
+    
     public ArrayList<PositionType> getPositionTypes() {
         return positionTypes;
     }
